@@ -1,0 +1,47 @@
+{
+  "mahasiswa": [
+    {
+      "id": 1,
+      "nama": "Abdur Rozak Junaidi",
+      "hp": "085755804391",
+      "angkatan": "2019",
+      "status": "Aktif",
+      "alamat": "Probolinggo",
+      "NIM": "1941720094"
+    },
+    {
+      "id": 2,
+      "nama": "Auzan Ihtifazuddin",
+      "hp": "081234018065",
+      "angkatan": "2019",
+      "status": "Aktif",
+      "alamat": "Jember",
+      "NIM": "1941720110"
+    },
+    {
+      "id": 3,
+      "nama": "Dandi Agung Setiawan",
+      "hp": "087846184617",
+      "angkatan": "2019",
+      "status": "Aktif",
+      "alamat": "Lumajang",
+      "NIM": "1941720009"
+    },
+    {
+      "id": "4",
+      "nama": "Abdur",
+      "hp": "08123456",
+      "angkatan": "2020",
+      "status": "Aktif",
+      "alamat": "jl cokro"
+    },
+    {
+      "id": "5",
+      "nama": "rozak",
+      "hp": "09887",
+      "angkatan": "2021",
+      "status": "Aktif",
+      "alamat": "suhat"
+    }
+  ]
+}
