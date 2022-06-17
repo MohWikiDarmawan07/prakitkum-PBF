@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Inter:400,800');
+
 .App {
     font-family: sans-serif;
     padding: 50px;
@@ -25,7 +27,7 @@ input {
 
 button {
     width: 125px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), e 1px 2px rgba(0, 0, 0, 0.24);
     border: none;
     padding: 7px;
     text-align: center;
@@ -43,30 +45,31 @@ button[type="submit"] {
 }
 
 .googleBtn {
-    width: 25px;
+    width: 225px;
     margin: 0 0 50px 0;
     display: flex;
     justify-content: center;
     font-size: 16px;
 }
 
-.googleBtn img{
+.googleBtn img {
     width: 16px;
     height: 16px;
     padding: 0;
     margin: 0 5px;
-    vertical-align:middle;
+    vertical-align: middle;
 }
 
 .nav {
     display: flex;
     text-decoration: none;
-    list-style-type: none;
+    List-style-type: none;
     justify-content: flex-start;
-    margin: 0 0 50px;
+    margin: 50px;
     padding: 0;
+    margin: 0 10px;
 }
 
-nav li {
+.nav li {
     margin: 0 10px;
 }

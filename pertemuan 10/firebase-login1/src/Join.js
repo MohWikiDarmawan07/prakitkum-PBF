@@ -1,13 +1,12 @@
-import React, {useState, useContext} from "react";
+import React, { useState, useContext } from "react";
 import { AuthContext } from "./index";
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
-import 'firebase/compat/firestore';
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
 
 const Join = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [error, setError] = useState("");
+    const [error, setErrors] = useState("");
 
     const Auth = useContext(AuthContext);
     const handleForm = e => {
@@ -15,30 +14,36 @@ const Join = () => {
         firebase
             .auth()
             .createUserWithEmailAndPassword(email, password)
+            .then((res) => {
+                if (res.user) Auth.setLoggedIn(true);
+            })
+            .catch((e) => {
+                setErrors(e.message);
+            });
+    };
+    const googleJoin = () => {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        firebase
+            .auth()
+            .signInWithPopup(provider)
+            .then((res) => {
+                console.log(res);
+                Auth.setLoggedIn(true);
+            });
+    };
+
+    const googleProvider = new firebase.auth.GoogleAuthProvider();
+    const joinGoogle = e => {
+        e.preventDefault();
+        firebase
+            .auth()
+            .signInWithPopup(googleProvider)
             .then(res => {
-                if (res.user) Auth.setLoggedIn(true)
+                if(res.user) Auth.setLoggedIn(true);
             })
             .catch(e => {
-                setError(e.message);
+                setErrors(e.message);
             })
-    }
-
-    const onLogin = () => {
-        var provider = new firebase.auth.GoogleAuthProvider();
-        firebase.auth()
-            .signInWithPopup(provider)
-            .then((result) => {
-                /** @type {firebase.auth.OAuthCredential} */
-               // var credential = result.credential;
-
-                // This gives you a Google Access Token. You can use it to access the Google API.
-               // var token = credential.accessToken;
-                // The signed-in user info.
-               // var user = result.user;
-                if (result.user) Auth.setLoggedIn(true);
-            }).catch((error) => {
-                console.log(error)
-            });
     }
 
     return (
@@ -60,18 +65,17 @@ const Join = () => {
                     placeholder="password"
                 />
                 <hr />
-                <button className='googleBtn' type="submit" onClick={onLogin}>
+                <button className="googleBtn" type="button" onClick={e => joinGoogle(e)}>
                     <img
                         src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
                         alt="logo"
                     />
-                    Join with Google
+                    Join With Google
                 </button>
-                <button type='submit'>Login</button>
+                <button type="submit">Join</button>
                 <span>{error}</span>
             </form>
         </div>
-    )
-}
-
+    );
+};
 export default Join;
